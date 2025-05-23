@@ -4,22 +4,22 @@
  * @return {function}
  */
 function makeInfinityAdder() {
-  let sum = 0;
+  let counter = 0;
 
-  function adder(num) {
-    if (num === undefined) {
-      const result = sum;
+  function add(x) {
+    if (x === undefined) {
+      const result = counter;
 
-      sum = 0; // Очистка суми після повернення результату
+      counter = 0;
 
       return result;
     }
-    sum += num;
+    counter += x;
 
-    return adder;
+    return add;
   }
 
-  return adder;
+  return add;
 }
 
 module.exports = makeInfinityAdder;
