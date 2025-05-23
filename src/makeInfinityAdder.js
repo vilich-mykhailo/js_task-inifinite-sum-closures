@@ -6,19 +6,18 @@
 function makeInfinityAdder() {
   let sum = 0;
 
-  const adder = (...args) => {
-    if (args.length === 0) {
+  function adder(num) {
+    if (num === undefined) {
       const result = sum;
 
-      sum = 0;
+      sum = 0; // Очистка суми після повернення результату
 
       return result;
     }
-
-    sum += args.reduce((amount, value) => amount + value, 0);
+    sum += num;
 
     return adder;
-  };
+  }
 
   return adder;
 }
